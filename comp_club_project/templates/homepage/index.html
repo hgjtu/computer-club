@@ -1,14 +1,83 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
   КиберСпот. Главная
 {% endblock %}
 
 {% block content %}
-  <h1 class="pb-2 mb-0">Главная страница</h1>
+  <div>
+    <p style="text-align: center;">
+      Добро пожаловать в киберклуб <b>КиберСпот!</b>
+    </p>
+    <p style="text-align: center;">
+      Мы — сообщество любителей видеоигр, где каждый может найти единомышленников,
+      участвовать в турнирах и просто хорошо провести время.
+    </p>
+  </div>
+
+  <h2 class="pb-2 mb-0" style="text-align: center;">Играй с комфортом</h2>
+
+  <h4 class="pb-2 mb-0" style="text-align: center;">Передовое железо</h4>
   <div class="row">
-    {% for ice_cream in ice_cream_list %}
-      {% include "includes/ice_cream_card.html" %}
-    {% endfor %}
+    {% for component in component_list %}
+      <div class="col-6 col-md-4 my-1 align-self-center">
+        <img 
+          class="img-fluid card-img-center" 
+          height="400" width="300"
+          style="border-radius: 50%;box-shadow: 0 0 10px 2px black;"
+          src="{% static component.img %}"
+        >
+        <h5 class="card-title" style="text-align: center;">{{ component.title }}</h5>
+      </div>
+    {% endfor %}    
+  </div>
+
+  <h4 class="pb-2 mb-0" style="text-align: center;">Скорость интернета/Минимальный пинг</h4>
+  <div class="row">
+    <div class="col align-self-center col-md-6">
+      <img 
+        class="img-fluid card-img-top" 
+        height="400" width="300"
+        style="white-space: nowrap;"
+        src="{% static 'img/homepage/internet_speed.webp' %}"
+      >
+    </div>
+    <div class="col align-self-center col-md-6">
+      <p class="modal-title" style="text-align: center;">Мы работаем с лучшими провайдерами
+        для обеспечения скорости на недостижимом уровне</p>
+      <h5 class="pb-2 mb-0" style="text-align: center;">ОТ 1 000 ДО  10 000 МБИТ/С</h5>
+    </div>
+  </div>
+
+  <h4 class="pb-2 m-1" style="text-align: center;">Игры</h4>
+  <div class='card'>
+    <p class="pb-0 m-0" style="text-align: center;">Мы постоянно обновляем наш список игр,
+      чтобы вы могли наслаждаться самыми актуальными новинками и классическими хитами.</p>
+    <h5 class="p-1 m-0" style="text-align: center;">{{ games_count }}+ популярных игр<br>на ПК, Консоли и VR</h5>
+    <p class="pb-2 m-0" style="text-align: center;">Также вы можете установить и игры из своей библиотеки</p>
+  </div>
+
+  <h4 class="pb-2 mb-0" style="text-align: center;">Бар</h4>
+  <div class='card'>
+    <h5 class="pb-2 mb-2" style="text-align: center;">Проголодался?<br>Бар доступен круглосуточно</h5>
+    <div class="row">
+      <div class="col align-self-center col-md-6">
+        <img 
+          class="rounded mx-auto d-block"
+          height="100" width="100"
+          src="{% static 'img/homepage/eat.png' %}"
+        >
+        <h6 class="pb-2 mb-0" style="text-align: center;">40+ позиций еды</h6>
+      </div>
+      <div class="col align-self-center col-md-6">
+        <img 
+          class="rounded mx-auto d-block" 
+          height="100" width="100"
+          src="{% static 'img/homepage/drinks.png' %}"
+        >
+        <h6 class="pb-2 mb-0" style="text-align: center;">50+ разных <b>безалкогольных</b> напитков</h6>
+      </div>
+    </div>
   </div>
 {% endblock %}
