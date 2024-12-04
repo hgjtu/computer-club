@@ -1,24 +1,59 @@
 {% load static %}
-
 <header>
-  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="{% url "homepage:index" %}">
-        <img src='{% static "img/logo.png" %}' width="30" height="30" class="d-inline-block align-top" alt="">
-        КиберСпот
+      <div 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        {% with request.resolver_match.view_name as view_name %}            
+        <ul class="nav nav-pills">
+          <li class="nav-item">              
+            <a
+              class="nav-link {% if view_name == 'homepage:index' %} active {% endif %}" 
+              href="{% url 'homepage:index' %}"
+              >
+              Главная 
+            </a> 
+          </li>
+          <li class="nav-item">
+            <a 
+              class="nav-link {% if view_name == 'about:description' %} active {% endif %}" 
+              href="{% url 'about:description' %}"
+              >
+              Каталог мороженого
+            </a> 
+          </li>
+          <li class="nav-item">
+            <a 
+              class="nav-link {% if view_name == 'about:description' %} active {% endif %}"
+              href="{% url 'about:description' %}"
+            >
+              О проекте
+            </a> 
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link {% if view_name == 'about:description' %} active {% endif %}"
+              href="{% url 'about:description' %}"
+            >
+              О нас
+            </a>
+          </li>
+        </ul>
+        {% endwith %}
+      </div> 
+      <a class="navbar-brand" href="{% url 'homepage:index' %}">
+        <h2 class="pb-2 mb-0" style="color:purple;">КиберСпот</h2>            
       </a>        
-      <ul class="nav  nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "homepage:index" %}">
-            Лента новостей
-          </a>
-        </li>
-        <li class="nav-item">              
-          <a class="nav-link" href="{% url "about:description" %}">
-            О нас
-          </a>
-        </li>
-      </ul>      
     </div>
-  </nav> 
+  </nav>
 </header>
