@@ -3,24 +3,19 @@
 <header>
   <nav class="navbar navbar-light" style="background-color: lightskyblue">
     <div class="container">
-      <a class="navbar-brand" href="{% url "blog:index" %}">
+      <a class="navbar-brand" href="{% url "homepage:index" %}">
         <img src='{% static "img/logo.png" %}' width="30" height="30" class="d-inline-block align-top" alt="">
-        Блогикум
+        КиберСпот
       </a>        
       <ul class="nav  nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="{% url "blog:index" %}">
-            Лента записей
+          <a class="nav-link" href="{% url "homepage:index" %}">
+            Лента новостей
           </a>
         </li>
         <li class="nav-item">              
-          <a class="nav-link" href="{% url "pages:about" %}">
-            О проекте
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="{% url "pages:rules" %}">
-            Наши правила
+          <a class="nav-link" href="{% url "about:description" %}">
+            О нас
           </a>
         </li>
       </ul>      
