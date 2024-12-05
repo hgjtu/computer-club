@@ -8,14 +8,14 @@
   <h3 class="pb-2 mb-0" style="text-align: center;">Услуги</h3>
   <div class="row">
     {% for serv in services %}
-      {% include "includes/serv_equip_card.html" %}
+      {% include "includes/service_card.html" %}
     {% endfor %}
   </div>
 
   <h3 class="pb-2 mb-0" style="text-align: center;">Оборудование</h3>
   <div class="row">
     {% for equip in equipment %}
-      {% include "includes/serv_equip_card.html" %}
+      {% include "includes/equipment_card.html" %}
     {% endfor %}
   </div>
 {% endblock %}

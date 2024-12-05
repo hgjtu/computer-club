@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="col-6 col-md-4 my-1">
+    <div class="card">
+      <img 
+        class="img-fluid card-img-top" 
+        height="300" width="300"
+        src="{% static {{ equip.img_path }} %}"
+      >
+      <div class="card-body">           
+        <h5 class="card-title">{{ equip.title }} </h5>
+        <p class="badge bg-secondary">{{ equip.price }}</p>
+      </div>
+    </div>
+  </div>

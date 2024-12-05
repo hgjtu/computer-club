@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView
 
-
-class ServicedEquipment(TemplateView):
-    template_name = "serv_equip/serv_equip_main.html"
+def ServicedEquipment(request):
+    template = "serv/equip_main.html"
+    context = {'services': services,
+               'equipment': equipment}
+    return render(request, template, context=context)

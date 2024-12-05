@@ -1,0 +1,10 @@
+[
+    {
+      "model": "servises_equipment.equipment",
+      "pk": 1,
+      "fields": {
+        "title": "Классический пломбир",
+        "": ""
+      }
+    }
+]
