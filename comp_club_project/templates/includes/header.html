@@ -21,7 +21,7 @@
               class="nav-link {% if view_name == 'homepage:index' %} active {% endif %}" 
               href="{% url 'homepage:index' %}"
               >
-              Новости 
+              Главная 
             </a> 
           </li>
           <li class="nav-item">
@@ -34,8 +34,8 @@
           </li>
           <li class="nav-item">
             <a 
-              class="nav-link {% if view_name == 'about:description' %} active {% endif %}"
-              href="{% url 'about:description' %}"
+              class="nav-link {% if view_name == 'serv_equip:serv_equip_main' %} active {% endif %}"
+              href="{% url 'serv_equip:serv_equip_main' %}"
             >
               Услуги и Оборудование
             </a> 

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'homepage.apps.HomepageConfig',
     'about.apps.AboutConfig',
+    'services_equipment.apps.ServicesEquipmentConfig',
     'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
