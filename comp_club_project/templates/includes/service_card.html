@@ -2,14 +2,14 @@
 
 <div class="col-6 col-md-4 my-1">
     <div class="card">
-      <img 
-        class="img-fluid card-img-top" 
-        height="300" width="300"
-        src="{% static {{ serv.img_path }} %}"
-      >
-      <div class="card-body">           
+      <div class="card-body" style="padding:1rem 0.5rem">           
         <h5 class="card-title">{{ serv.title }} </h5>
-        <p class="badge bg-secondary">{{ serv.price }}</p>
+        {% if serv.weekday %}
+          <p>Будний день</p>
+        {% else %}
+          <p>Выходной</p>
+        {% endif %}
+        <p class="badge bg-secondary">{{ serv.price }} руб</p>
       </div>
     </div>
   </div>

@@ -12,6 +12,32 @@
     <title>
       {% block title %}{% endblock %}
     </title>
+    <style>
+      .truncate-text {
+        max-height: 30px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      .truncate-text.expanded {
+          max-height: 500px;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const toggleButtons = document.querySelectorAll('.toggle-button');
+    
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const textDiv = document.getElementById(targetId);
+                
+                textDiv.classList.toggle('expanded');
+                button.textContent = textDiv.classList.contains('expanded') ? 'Скрыть все игры' : 'Показать все игры';
+            });
+        });
+    });    
+    </script>
   </head>
   <body>
     {% include "includes/header.html" %}
