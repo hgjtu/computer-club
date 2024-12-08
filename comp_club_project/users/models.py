@@ -8,3 +8,7 @@ class MyUser(AbstractUser):
                                 help_text="Обязательное поле.",
                                 )
     phone_num = PhoneNumberField('Номер телефона', blank=True)
+    img_path = models.CharField(max_length=128,
+                                verbose_name='Путь до изображения',
+                                default='img/no_image.png',
+                                )
