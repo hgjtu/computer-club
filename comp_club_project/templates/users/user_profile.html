@@ -24,7 +24,7 @@
           {% if user.date_of_birth %}
               <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
           {% endif %}
-          <a href="{% url 'users:edit' %}" class="btn btn-warning">Изменить профиль</a>
+          <a href="{% url 'users:edit' user.username %}" class="btn btn-warning">Изменить профиль</a>
         </div>
     </div>
   </div>

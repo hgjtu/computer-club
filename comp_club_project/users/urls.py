@@ -26,7 +26,7 @@ urlpatterns = [
         ),
         name='registration',
     ),
-    path('edit/', views.user, name='edit'),
+    path('<str:name>/edit/', views.user_edit, name='edit'),
     path("profile/", views.user_profile, name="profile"),
     # Логин.
     path(
