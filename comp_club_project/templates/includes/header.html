@@ -53,7 +53,20 @@
       </div> 
       <a class="navbar-brand" href="{% url 'homepage:index' %}">
         <h2 class="pb-2 mb-0" style="color:purple;">КиберСпот</h2>            
-      </a>        
+      </a>
+      {% if user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'users:logout' %}">
+          <img src="{% static 'img/no_image.png' %}" height="50" class="d-inline-block align-top" alt="">            
+        </a>
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Выйти</button>
+        </form>
+      {% else %}
+        <a class="navbar-brand" href="{% url 'users:login' %}">
+          <button class="btn-new", style="color: white; background: purple;">Войти</button>
+        </a>       
+      {% endif %}    
     </div>
   </nav>
 </header>

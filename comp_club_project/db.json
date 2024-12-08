@@ -142,5 +142,25 @@
         "serviceability": true,
         "installed_apps_and_games": "Beat Saber,Job Simulator,Superhot VR,The Room VR: A Dark Matter"
       }
-    }   
+    },
+    {
+      "model": "users.myuser",
+      "pk": 1,
+      "fields": {
+          "password": "pbkdf2_sha256$870000$1JMRb6HS2DjSs4bCvvo4JN$fzHiDarp+lrdmGFWJVH2g3L2QjLgrUCVVOx683r5qBI=",
+          "last_login": null,
+          "is_superuser": true,
+          "username": "admin",
+          "first_name": "",
+          "last_name": "",
+          "email": "admin@admin.com",
+          "is_staff": true,
+          "is_active": true,
+          "date_joined": "2024-12-08T16:27:54.757Z",
+          "birthday": "1990-01-01",
+          "phone_num": "+123456789",
+          "groups": [],
+          "user_permissions": []
+      }
+  }
 ]

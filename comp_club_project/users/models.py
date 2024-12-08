@@ -4,5 +4,7 @@ from django.db import models
 
 
 class MyUser(AbstractUser):
-    birthday = models.DateField('Дата рождения', blank=True)
-    phone_num = PhoneNumberField('Номер телефона', blank=True, unique=True)
+    birthday = models.DateField('Дата рождения', blank=False,
+                                help_text="Обязательное поле.",
+                                )
+    phone_num = PhoneNumberField('Номер телефона', blank=True)
