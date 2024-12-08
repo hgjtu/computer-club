@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .forms import UserForm
 from .models import MyUser
+
+
+def success_registration(request):
+    return render(request, 'registration/great_success.html')
 
 
 def user(request):

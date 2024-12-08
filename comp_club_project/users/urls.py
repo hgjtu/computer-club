@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path, reverse_lazy
 from . import views
 from django.contrib.auth.views import (
     LoginView,
@@ -11,10 +11,21 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView,
 )
 
+from django.views.generic.edit import CreateView
+from .forms import CustomUserCreationForm
+
 app_name = "users"
 
 urlpatterns = [
-    # path("create/", views.user, name="create"),
+    path(
+        'registration/',
+        CreateView.as_view(
+            template_name='registration/registration_form.html',
+            form_class=CustomUserCreationForm,
+            success_url=reverse_lazy('users:great_success'),
+        ),
+        name='registration',
+    ),
     path('edit/', views.user, name='edit'),
     path("profile/", views.user_profile, name="profile"),
     # Логин.

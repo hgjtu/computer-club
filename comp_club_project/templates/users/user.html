@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 
+{% block title %}
+  КиберСпот. Редактирование профиля.
+{% endblock %}
+
 {% block content %}
   <form method="post">
     {% bootstrap_form form %}

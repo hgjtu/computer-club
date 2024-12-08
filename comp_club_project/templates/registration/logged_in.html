@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
 
+{% block title %}
+  КиберСпот. Вход.
+{% endblock %}
+
 {% block content %}
   {% if next %}
     {% if user.is_authenticated %}
@@ -17,6 +21,7 @@
     {% endif %}
   {% endif %}
 
+  <div style="display: flex;justify-content: center;">
   <div class="card col-4 m-3">
     <div class="card-header">
       Войти в систему
@@ -27,10 +32,12 @@
         {% bootstrap_form form %}
         <input type="hidden" name="next" value="{{ next }}">
         {% bootstrap_button button_type="submit" content="Войти" %}
+        <a href="{% url 'users:registration' %}" class="btn btn-secondary">Зарегистрироваться</a>
       </form>
       <div>
         <a href="{% url 'password_reset' %}">Забыли пароль?</a>
       </div>
     </div>
   </div>
+</div>
 {% endblock %} 

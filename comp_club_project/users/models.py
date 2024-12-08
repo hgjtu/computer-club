@@ -4,11 +4,11 @@ from django.db import models
 
 
 class MyUser(AbstractUser):
-    birthday = models.DateField('Дата рождения', blank=False,
-                                help_text="Обязательное поле.",
+    birthday = models.DateField('Дата рождения', blank=True, null=True,
+                                help_text="Мы Вас поздравим и сделаем скидку :)",
                                 )
     phone_num = PhoneNumberField('Номер телефона', blank=True)
-    img_path = models.CharField(max_length=128,
-                                verbose_name='Путь до изображения',
-                                default='img/no_image.png',
-                                )
+    img_path = models.ImageField(upload_to='users/profile_photo/',
+                                 default='img/no_image.png',
+                                 verbose_name='Загрузите фото профиля',
+                                 blank=True, null=True)
