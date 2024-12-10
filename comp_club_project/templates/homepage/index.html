@@ -21,11 +21,11 @@
   <h4 class="pb-2 mb-0" style="text-align: center;">Передовое железо</h4>
   <div class="row">
     {% for component in component_list %}
-      <div class="col-6 col-md-4 my-1 align-self-center">
+      <div class="col-6 col-md-4 my-1 align-self-center" style="text-align: center;">
         <img 
           class="img-fluid card-img-center" 
           height="400" width="300"
-          style="border-radius: 50%;box-shadow: 0 0 10px 2px green;"
+          style="border-radius: 50%;box-shadow: 0 0 5px 2px gray;"
           src="{% static component.img %}"
         >
         <h5 class="card-title" style="text-align: center;">{{ component.title }}</h5>
@@ -39,7 +39,7 @@
       <img 
         class="img-fluid card-img-top" 
         height="400" width="300"
-        style="white-space: nowrap;"
+        style="white-space: nowrap;border-radius: 5px;"
         src="{% static 'img/homepage/internet_speed.webp' %}"
       >
     </div>

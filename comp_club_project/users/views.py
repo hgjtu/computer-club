@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from .forms import UserForm
-from .models import MyUser
+from .models import MyUser, Session
 from django.conf import settings
 
 import os
@@ -33,5 +34,14 @@ def user_edit(request, name):
 
 @login_required
 def user_profile(request, name):
-    # instance = get_object_or_404(MyUser, username=name)
-    return render(request, 'users/user_profile.html', {'view_user': name})
+    instance = get_object_or_404(MyUser, username=name)
+
+    sessions = Session.objects.filter(user_id=instance).order_by("pk")
+    paginator = Paginator(sessions, 4)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'users/user_profile.html',
+                  {'view_user': name,
+                   'page_obj': page_obj})

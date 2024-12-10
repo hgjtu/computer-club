@@ -13,24 +13,56 @@
         <img src="{{ user.img_path.url }}" alt="Фото пользователя" class="img-fluid mb-3 profile-img">
       </div>
       <div class="col-md-8">
-          <h2>{{ user.username }}</h2>
-          {% if user.first_name %}
-              <p><strong>Имя:</strong> {{ user.first_name }}</p>
-          {% endif %}
-          {% if user.last_name %}
-              <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
-          {% endif %}
-          {% if user.phone_num %}
-              <p><strong>Номер телефона:</strong> {{ user.phone_num }}</p>
-          {% endif %}
-          <p><strong>Email:</strong> {{ user.email }}</p>
-          {% if user.date_of_birth %}
-              <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
-          {% endif %}
-          <a href="{% url 'users:edit' user.username %}" class="btn btn-warning">Изменить профиль</a>
-        </div>
-    </div>
+        <h2>{{ user.username }}</h2>
+        {% if user.first_name %}
+            <p><strong>Имя:</strong> {{ user.first_name }}</p>
+        {% endif %}
+        {% if user.last_name %}
+            <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+        {% endif %}
+        {% if user.phone_num %}
+            <p><strong>Номер телефона:</strong> {{ user.phone_num }}</p>
+        {% endif %}
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        {% if user.date_of_birth %}
+            <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
+        {% endif %}
+        <a href="{% url 'users:edit' user.username %}" class="btn btn-warning">Изменить профиль</a>
+      </div>
   </div>
+</div>
+<div class="container mt-4">
+  <h2>Ваши сессии</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Номер сессии</th>
+        <th scope="col">Время начала сессии</th>
+        <th scope="col">Время окончания сессии</th>
+        <th scope="col">Тип услуги</th>
+        <th scope="col">Оборудование</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for session in page_obj %}
+      <tr>
+        <td>{{ session.id }}</td>
+        <td>{{ session.start_time }}</td>
+        <td>
+          {% if session.end_time %}
+            {{ session.end_time }}
+          {% else %}
+            Сессия не закончена
+          {% endif %}
+        </td>
+        <td>{{ session.servise_id }}</td>
+        <td>{{ session.equipment_id }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+  {% include "includes/paginator.html" %}
+</div>
 {% else %}
   {% include "includes/none_page.html" %}
 {% endif %} 

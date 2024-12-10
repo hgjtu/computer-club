@@ -1,166 +1,320 @@
 [
-    {
-      "model": "services_equipment.services",
-      "pk": 1,
-      "fields": {
-        "title": "Предоставление ПК",
-        "weekday": true,
-        "price": 100
-      }
-    },
-    {
-      "model": "services_equipment.services",
-      "pk": 2,
-      "fields": {
-        "title": "Предоставление ПК",
-        "weekday": false,
-        "price": 120
-      }
-    },
-    {
-      "model": "services_equipment.services",
-      "pk": 3,
-      "fields": { 
-        "title": "Предоставление Игровой консоли",
-        "weekday": true,
-        "price":  120
-      }
-    },
-    {
-      "model": "services_equipment.services",
-      "pk": 4,
-      "fields": { 
-        "title": "Предоставление Игровой консоли",
-        "weekday": false,
-        "price":  150
-      }
-    },
-    {
-      "model": "services_equipment.services",
-      "pk": 5,
-      "fields": { 
-        "title": "Предоставление VR-шлема",
-        "weekday": true,
-        "price":  150
-      }
-    },
-    {
-      "model": "services_equipment.services",
-      "pk": 6,
-      "fields": { 
-        "title": "Предоставление VR-шлема",
-        "weekday": true,
-        "price":  170
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 1,
-      "fields": { 
-        "type": "ПК",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "The Witcher 3: Wild Hunt,Red Dead Redemption 2,Dark Souls III,Sekiro: Shadows Die Twice"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 2,
-      "fields": { 
-        "type": "ПК",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Civilization VI,Total War: Three Kingdoms,Age of Empires IV,StarCraft II,Hollow Knight,Hades,Celeste,Stardew Valley,DOOM Eternal"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 3,
-      "fields": { 
-        "type": "ПК",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Counter-Strike: Global Offensive,Valorant,Apex Legends"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 4,
-      "fields": { 
-        "type": "ПК",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Hades,Celeste,Stardew Valley,DOOM Eternal,Counter-Strike: Global Offensive"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 5,
-      "fields": { 
-        "type": "Игровая консоль",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "God of War,The Legend of Zelda: Breath of the Wild,Spider-Man"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 6,
-      "fields": { 
-        "type": "Игровая консоль",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Ghost of Tsushima,FIFA 23,NBA 2K23,Madden NFL 23,Gran Turismo 7,Final Fantasy VII Remake,Persona 5 Royal,Elden Ring,Monster Hunter: World"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 7,
-      "fields": { 
-        "type": "Игровая консоль",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Fortnite,Call of Duty: Warzone,Rocket League,Overwatch 2"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 8,
-      "fields": { 
-        "type": "VR-шлем",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Half-Life: Alyx,Boneworks,The Walking Dead: Saints  Sinners,Moss"
-      }
-    },
-    {
-      "model": "services_equipment.equipment",
-      "pk": 9,
-      "fields": { 
-        "type": "VR-шлем",
-        "img_path": "img/no_image.png",
-        "serviceability": true,
-        "installed_apps_and_games": "Beat Saber,Job Simulator,Superhot VR,The Room VR: A Dark Matter"
-      }
-    },
-    {
-      "model": "users.myuser",
-      "pk": 1,
-      "fields": {
-          "password": "pbkdf2_sha256$870000$1JMRb6HS2DjSs4bCvvo4JN$fzHiDarp+lrdmGFWJVH2g3L2QjLgrUCVVOx683r5qBI=",
-          "last_login": null,
-          "is_superuser": true,
-          "username": "admin",
-          "first_name": "",
-          "last_name": "",
-          "email": "admin@admin.com",
-          "is_staff": true,
-          "is_active": true,
-          "date_joined": "2024-12-08T16:27:54.757Z",
-          "birthday": "1990-01-01",
-          "phone_num": "+123456789",
-          "groups": [],
-          "user_permissions": []
-      }
+  {
+    "model": "services_equipment.services",
+    "pk": 1,
+    "fields": {
+      "title": "Предоставление ПК",
+      "weekday": true,
+      "price": 100
+    }
+  },
+  {
+    "model": "services_equipment.services",
+    "pk": 2,
+    "fields": {
+      "title": "Предоставление ПК",
+      "weekday": false,
+      "price": 120
+    }
+  },
+  {
+    "model": "services_equipment.services",
+    "pk": 3,
+    "fields": {
+      "title": "Предоставление Игровой консоли",
+      "weekday": true,
+      "price": 120
+    }
+  },
+  {
+    "model": "services_equipment.services",
+    "pk": 4,
+    "fields": {
+      "title": "Предоставление Игровой консоли",
+      "weekday": false,
+      "price": 150
+    }
+  },
+  {
+    "model": "services_equipment.services",
+    "pk": 5,
+    "fields": {
+      "title": "Предоставление VR-шлема",
+      "weekday": true,
+      "price": 150
+    }
+  },
+  {
+    "model": "services_equipment.services",
+    "pk": 6,
+    "fields": {
+      "title": "Предоставление VR-шлема",
+      "weekday": true,
+      "price": 170
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 1,
+    "fields": {
+      "type": "ПК",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "The Witcher 3: Wild Hunt,Red Dead Redemption 2,Dark Souls III,Sekiro: Shadows Die Twice"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 2,
+    "fields": {
+      "type": "ПК",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Civilization VI,Total War: Three Kingdoms,Age of Empires IV,StarCraft II,Hollow Knight,Hades,Celeste,Stardew Valley,DOOM Eternal"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 3,
+    "fields": {
+      "type": "ПК",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Counter-Strike: Global Offensive,Valorant,Apex Legends"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 4,
+    "fields": {
+      "type": "ПК",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Hades,Celeste,Stardew Valley,DOOM Eternal,Counter-Strike: Global Offensive"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 5,
+    "fields": {
+      "type": "Игровая консоль",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "God of War,The Legend of Zelda: Breath of the Wild,Spider-Man"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 6,
+    "fields": {
+      "type": "Игровая консоль",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Ghost of Tsushima,FIFA 23,NBA 2K23,Madden NFL 23,Gran Turismo 7,Final Fantasy VII Remake,Persona 5 Royal,Elden Ring,Monster Hunter: World"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 7,
+    "fields": {
+      "type": "Игровая консоль",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Fortnite,Call of Duty: Warzone,Rocket League,Overwatch 2"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 8,
+    "fields": {
+      "type": "VR-шлем",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Half-Life: Alyx,Boneworks,The Walking Dead: Saints  Sinners,Moss"
+    }
+  },
+  {
+    "model": "services_equipment.equipment",
+    "pk": 9,
+    "fields": {
+      "type": "VR-шлем",
+      "img_path": "img/no_image.png",
+      "serviceability": true,
+      "installed_apps_and_games": "Beat Saber,Job Simulator,Superhot VR,The Room VR: A Dark Matter"
+    }
+  },
+  {
+    "model": "users.myuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JMRb6HS2DjSs4bCvvo4JN$fzHiDarp+lrdmGFWJVH2g3L2QjLgrUCVVOx683r5qBI=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@admin.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-12-08T16:27:54.757Z",
+      "birthday": "1990-01-01",
+      "phone_num": "+123456789",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 1,
+    "fields": {
+      "start_time": "2024-12-10 01:21:29",
+      "end_time": null,
+      "user_id": 8,
+      "service_id": 1,
+      "equipment_id": 1
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 2,
+    "fields": {
+      "start_time": "2024-11-10 01:21:29",
+      "end_time": "2024-11-10 07:12:29",
+      "user_id": 8,
+      "service_id": 1,
+      "equipment_id": 3
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 3,
+    "fields": {
+      "start_time": "2024-10-10 01:21:29",
+      "end_time": "2024-10-10 07:56:29",
+      "user_id": 8,
+      "service_id": 2,
+      "equipment_id": 1
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 4,
+    "fields": {
+      "start_time": "2024-09-10 01:21:29",
+      "end_time": "2024-09-10 02:56:29",
+      "user_id": 8,
+      "service_id": 2,
+      "equipment_id": 2
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 5,
+    "fields": {
+      "start_time": "2024-07-10 23:45:29",
+      "end_time": "2024-08-10 02:56:29",
+      "user_id": 8,
+      "service_id": 3,
+      "equipment_id": 6
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 6,
+    "fields": {
+      "start_time": "2024-01-10 01:21:29",
+      "end_time": "2024-01-10 08:56:29",
+      "user_id": 8,
+      "service_id": 2,
+      "equipment_id": 2
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 7,
+    "fields": {
+      "start_time": "2024-01-10 01:21:29",
+      "end_time": "2024-01-10 08:56:29",
+      "user_id": 8,
+      "service_id": 3,
+      "equipment_id": 7
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 8,
+    "fields": {
+      "start_time": "2024-12-09 01:21:29",
+      "end_time": "2024-12-09 08:56:29",
+      "user_id": 8,
+      "service_id": 3,
+      "equipment_id": 7
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 9,
+    "fields": {
+      "start_time": "2024-12-04 01:21:29",
+      "end_time": "2024-12-04 08:56:29",
+      "user_id": 8,
+      "service_id": 3,
+      "equipment_id": 7
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 10,
+    "fields": {
+      "start_time": "2024-12-09 01:21:29",
+      "end_time": "2024-12-09 08:56:29",
+      "user_id": 8,
+      "service_id": 6,
+      "equipment_id": 8
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 11,
+    "fields": {
+      "start_time": "2024-12-03 15:21:29",
+      "end_time": "2024-12-03 17:12:29",
+      "user_id": 8,
+      "service_id": 6,
+      "equipment_id": 8
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 12,
+    "fields": {
+      "start_time": "2024-12-04 01:21:29",
+      "end_time": "2024-12-04 08:56:29",
+      "user_id": 9,
+      "service_id": 3,
+      "equipment_id": 5
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 13,
+    "fields": {
+      "start_time": "2024-12-09 01:21:29",
+      "end_time": "2024-12-09 08:56:29",
+      "user_id": 9,
+      "service_id": 6,
+      "equipment_id": 9
+    }
+  },
+  {
+    "model": "users.session",
+    "pk": 14,
+    "fields": {
+      "start_time": "2024-12-03 15:21:29",
+      "end_time": "2024-12-03 17:12:29",
+      "user_id": 9,
+      "service_id": 6,
+      "equipment_id": 9
+    }
   }
 ]
