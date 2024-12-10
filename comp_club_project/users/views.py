@@ -2,6 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm
 from .models import MyUser
+from django.conf import settings
+
+import os
+from django.core.files import File
 
 
 def success_registration(request):
@@ -15,10 +19,15 @@ def user_edit(request, name):
     if request.method == 'POST':
         form = UserForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
+            print(form.cleaned_data)
+            if (form.cleaned_data['img_path'] is False):
+                with open(os.path.join(settings.BASE_DIR,
+                          'media/users/profile_photo/profile.png'), 'rb') as f:
+                    form.instance.img_path.save('profile.jpg', File(f))
             form.save()
             return redirect('users:profile', name=name)
     else:
-        form = UserForm(instance=instance)   
+        form = UserForm(instance=instance)
     return render(request, 'users/user_edit.html', {'form': form})
 
 
