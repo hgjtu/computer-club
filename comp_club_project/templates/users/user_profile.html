@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and view_user == user.username %}
 <div class="container mt-5">
   <div class="row">
       <div class="col-md-4 text-center">
-        <img src="{% static user.img_path %}" alt="Фото пользователя" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
+        <img src="{{ user.img_path.url }}" alt="Фото пользователя" class="img-fluid mb-3 profile-img">
       </div>
       <div class="col-md-8">
           <h2>{{ user.username }}</h2>
@@ -19,6 +19,9 @@
           {% endif %}
           {% if user.last_name %}
               <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+          {% endif %}
+          {% if user.phone_num %}
+              <p><strong>Номер телефона:</strong> {{ user.phone_num }}</p>
           {% endif %}
           <p><strong>Email:</strong> {{ user.email }}</p>
           {% if user.date_of_birth %}
@@ -29,7 +32,7 @@
     </div>
   </div>
 {% else %}
-  {% include "includes/none_page.html" %} 
+  {% include "includes/none_page.html" %}
 {% endif %} 
 
 {% endblock %} 

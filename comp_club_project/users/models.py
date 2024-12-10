@@ -9,6 +9,6 @@ class MyUser(AbstractUser):
                                 )
     phone_num = PhoneNumberField('Номер телефона', blank=True)
     img_path = models.ImageField(upload_to='users/profile_photo/',
-                                 default='img/no_image.png',
+                                 default='no_image.png',
                                  verbose_name='Загрузите фото профиля',
                                  blank=True, null=True)

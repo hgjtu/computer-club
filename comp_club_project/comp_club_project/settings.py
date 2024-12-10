@@ -79,6 +79,8 @@ TEMPLATES = [
 LOGIN_REDIRECT_URL = 'homepage:index'
 LOGOUT_REDIRECT_URL = 'homepage:index'
 
+MEDIA_ROOT = BASE_DIR / 'media'
+
 WSGI_APPLICATION = 'comp_club_project.wsgi.application'
 
 
