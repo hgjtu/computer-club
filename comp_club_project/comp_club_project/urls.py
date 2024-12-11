@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from users.views import fetch_sessions
 
 urlpatterns = [
     path("", include("homepage.urls")),
@@ -24,5 +25,6 @@ urlpatterns = [
     path("serv_equip/", include("services_equipment.urls")),
     path("user/", include("users.urls")),
     path('auth/', include('django.contrib.auth.urls')),
+    path('api/sessions/', fetch_sessions, name='fetch_sessions'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

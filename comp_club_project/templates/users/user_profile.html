@@ -31,9 +31,10 @@
       </div>
   </div>
 </div>
+<button id="fetchSessionsBtn" class="btn btn-primary">Показать сессии</button>
 <div class="container mt-4">
   <h2>Ваши сессии</h2>
-  <table class="table">
+  <table class="table" id="sessionsTable">
     <thead>
       <tr>
         <th scope="col">Номер сессии</th>
@@ -45,24 +46,45 @@
     </thead>
   <tbody>
     {% for session in page_obj %}
-      <tr>
-        <td>{{ session.id }}</td>
-        <td>{{ session.start_time }}</td>
-        <td>
-          {% if session.end_time %}
-            {{ session.end_time }}
-          {% else %}
-            Сессия не закончена
-          {% endif %}
-        </td>
-        <td>{{ session.servise_id }}</td>
-        <td>{{ session.equipment_id }}</td>
-      </tr>
-    {% endfor %}
+    <tr>
+
+    </tr>
+  {% endfor %}
   </tbody>
   </table>
   {% include "includes/paginator.html" %}
 </div>
+<script>
+  document.getElementById('fetchSessionsBtn').addEventListener('click', function() {
+  fetch('/api/sessions/')
+        .then(response => response.text()) // Получаем ответ как текст
+        .then(text => {
+            print(text);
+  )});
+  document.getElementById('fetchSessionsBtn').addEventListener('click', function() {
+    fetch('fetch_sessions')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector('#sessionsTable tbody');
+            tableBody.innerHTML = ''; // очищаем содержимое таблицы
+
+            data.forEach(session => {
+                // Создаем новую строку таблицы
+                const row = 
+                    <tr>
+                        <td>${session.id}</td>
+                        <td>${new Date(session.start_time).toLocaleString()}</td>
+                        <td>${session.end_time ? new Date(session.end_time).toLocaleString() : 'Не завершена'}</td>
+                        <td>${session.service_id}</td>
+                        <td>${session.equipment_id}</td>
+                    </tr>
+                ;
+                tableBody.innerHTML += row; // добавляем новую строку в таблицу
+            });
+        })
+        .catch(error => console.error('Ошибка:', error));
+});
+</script>
 {% else %}
   {% include "includes/none_page.html" %}
 {% endif %} 

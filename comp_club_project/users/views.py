@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.core.paginator import Paginator
 from .forms import UserForm
 from .models import MyUser, Session
@@ -45,3 +46,19 @@ def user_profile(request, name):
     return render(request, 'users/user_profile.html',
                   {'view_user': name,
                    'page_obj': page_obj})
+
+@login_required
+def fetch_sessions(request):
+    user_sessions = Session.objects.filter(user_id=request.user)
+    sessions_data = []
+
+    for session in user_sessions:
+        sessions_data.append({
+            'session_id': session.pk,
+            'start_time': session.start_time,
+            'end_time': session.end_time,
+            'service_id': session.service_id,
+            'equipment_id': session.equipment_id,
+        })
+
+    return JsonResponse(sessions_data, safe=False)
