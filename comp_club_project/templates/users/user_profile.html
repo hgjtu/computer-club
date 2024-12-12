@@ -31,12 +31,24 @@
       </div>
   </div>
 </div>
-<button id="fetchSessionsBtn" class="btn btn-primary">Показать сессии</button>
 <div class="container mt-4">
   <h2>Ваши сессии</h2>
-  <table class="table" id="sessionsTable">
+  <form method="GET" action="{% url 'users:profile' user.username %}">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="session_id" placeholder="Номер сессии" aria-label="Номер сессии">
+      <input type="text" class="form-control" name="start_time_from" placeholder="Время начала от" aria-label="Время начала от">
+      <input type="text" class="form-control" name="start_time_to" placeholder="Время начала до" aria-label="Время начала до">
+      <input type="text" class="form-control" name="end_time_from" placeholder="Окончание от" aria-label="Время окончания от">
+      <input type="text" class="form-control" name="end_time_to" placeholder="Окончание до" aria-label="Время окончания до">
+      <input type="text" class="form-control" name="servise_id" placeholder="Тип услуги" aria-label="Тип услуги">
+      <input type="text" class="form-control" name="equipment_id" placeholder="Оборудование" aria-label="Оборудование">
+      <button class="btn btn-outline-secondary" type="submit">Поиск</button>
+      <button class="btn btn-outline-danger" type="button" id="clearButton">Очистить поиск</button>
+    </div>
+  </form>
+  <table class="table">
     <thead>
-      <tr>
+      <tr style="text-align:center;">
         <th scope="col">Номер сессии</th>
         <th scope="col">Время начала сессии</th>
         <th scope="col">Время окончания сессии</th>
@@ -46,44 +58,36 @@
     </thead>
   <tbody>
     {% for session in page_obj %}
-    <tr>
-
-    </tr>
-  {% endfor %}
+      <tr  style="text-align:center;">
+        <td>{{ session.id }}</td>
+        <td>{{ session.start_time }}</td>
+        <td>
+          {% if session.end_time %}
+            {{ session.end_time }}
+          {% else %}
+            Сессия не закончена
+          {% endif %}
+        </td>
+        <td>{{ session.service_id }}</td>
+        <td>{{ session.equipment_id }}  {{ session.service_id.pk }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5" class="text-center">Нет результатов для отображения.</td>
+      </tr>
+    {% endfor %}
   </tbody>
   </table>
   {% include "includes/paginator.html" %}
 </div>
 <script>
-  document.getElementById('fetchSessionsBtn').addEventListener('click', function() {
-  fetch('/api/sessions/')
-        .then(response => response.text()) // Получаем ответ как текст
-        .then(text => {
-            print(text);
-  )});
-  document.getElementById('fetchSessionsBtn').addEventListener('click', function() {
-    fetch('fetch_sessions')
-        .then(response => response.json())
-        .then(data => {
-            const tableBody = document.querySelector('#sessionsTable tbody');
-            tableBody.innerHTML = ''; // очищаем содержимое таблицы
-
-            data.forEach(session => {
-                // Создаем новую строку таблицы
-                const row = 
-                    <tr>
-                        <td>${session.id}</td>
-                        <td>${new Date(session.start_time).toLocaleString()}</td>
-                        <td>${session.end_time ? new Date(session.end_time).toLocaleString() : 'Не завершена'}</td>
-                        <td>${session.service_id}</td>
-                        <td>${session.equipment_id}</td>
-                    </tr>
-                ;
-                tableBody.innerHTML += row; // добавляем новую строку в таблицу
-            });
-        })
-        .catch(error => console.error('Ошибка:', error));
-});
+  document.getElementById('clearButton').addEventListener('click', function() {
+    const form = document.getElementById('searchForm');
+    const inputs = form.querySelectorAll('input[type="text"]');
+    inputs.forEach(input => {
+      input.value = '';
+    });
+  });
 </script>
 {% else %}
   {% include "includes/none_page.html" %}

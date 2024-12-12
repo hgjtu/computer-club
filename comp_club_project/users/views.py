@@ -33,11 +33,41 @@ def user_edit(request, name):
     return render(request, 'users/user_edit.html', {'form': form})
 
 
+last_search = ""
+
+
 @login_required
 def user_profile(request, name):
     instance = get_object_or_404(MyUser, username=name)
 
+    session_id = request.GET.get('session_id', '')
+    start_time_from = request.GET.get('start_time_from', '')
+    start_time_to = request.GET.get('start_time_to', '')
+    end_time_from = request.GET.get('end_time_from', '')
+    end_time_to = request.GET.get('end_time_to', '')
+    service_name = request.GET.get('servise_id', '')
+    equipment_name = request.GET.get('equipment_id', '')
+
+    sessions = Session.objects.all()
+
     sessions = Session.objects.filter(user_id=instance).order_by("pk")
+    if session_id:
+        sessions = sessions.filter(id=session_id)
+    if start_time_from:
+        sessions = sessions.filter(start_time__gte=start_time_from)
+    if start_time_to:
+        sessions = sessions.filter(start_time__lte=start_time_to)
+    if end_time_from:
+        sessions = sessions.filter(end_time__gte=end_time_from)
+    if end_time_to:
+        sessions = sessions.filter(end_time__lte=end_time_to)
+    if service_name:
+        sessions = sessions.filter(service_id__title=service_name)
+    if equipment_name:
+        sessions = sessions.filter(equipment_id__type=equipment_name)
+
+    last_search = sessions
+
     paginator = Paginator(sessions, 4)
 
     page_number = request.GET.get('page')
@@ -46,6 +76,7 @@ def user_profile(request, name):
     return render(request, 'users/user_profile.html',
                   {'view_user': name,
                    'page_obj': page_obj})
+
 
 @login_required
 def fetch_sessions(request):
