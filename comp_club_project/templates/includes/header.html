@@ -20,6 +20,9 @@
             <a
               class="nav-link {% if view_name == 'homepage:index' %} active {% endif %}" 
               href="{% url 'homepage:index' %}"
+              {% if view_name == 'homepage:index' %} style="font-color:white; background-color:#39974a;"
+              {% else %} style="color:purple;"
+              {% endif %}
               >
               Главная 
             </a> 
@@ -36,6 +39,9 @@
             <a 
               class="nav-link {% if view_name == 'serv_equip:serv_equip_main' %} active {% endif %}"
               href="{% url 'serv_equip:serv_equip_main' %}"
+              {% if view_name == 'serv_equip:serv_equip_main' %} style="font-color:white; background-color:#39974a;"
+              {% else %} style="color:purple;"
+              {% endif %}
             >
               Услуги и Оборудование
             </a> 
@@ -44,6 +50,9 @@
             <a
               class="nav-link {% if view_name == 'about:description' %} active {% endif %}"
               href="{% url 'about:description' %}"
+              {% if view_name == 'about:description' %} style="font-color:white; background-color:#39974a;"
+              {% else %} style="color:purple;"
+              {% endif %}
             >
               О нас
             </a>

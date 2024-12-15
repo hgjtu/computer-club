@@ -19,10 +19,9 @@ class Equipment(models.Model):
     type = models.CharField(max_length=128,
                             verbose_name='Тип оборудования',
                             default='Неопределенный тип')
-    img_path = models.CharField(max_length=128,
-                                verbose_name='Путь до изображения',
-                                default='img/no_image.png',
-                                )
+    img_path = models.ImageField(upload_to='equipments/',
+                                 default='no_image.png',
+                                 verbose_name='Путь до изображения')
     installed_apps_and_games = models.TextField(
         verbose_name='Установленные игры и приложения',
         null=True

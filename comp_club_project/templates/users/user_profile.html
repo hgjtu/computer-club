@@ -27,7 +27,7 @@
         {% if user.date_of_birth %}
             <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
         {% endif %}
-        <a href="{% url 'users:edit' user.username %}" class="btn btn-warning">Изменить профиль</a>
+        <a href="{% url 'users:edit' user.username %}" class="btn btn-warning" style="background-color:#3899c9;border-color:#3899c9;">Изменить профиль</a>
       </div>
   </div>
 </div>
@@ -43,7 +43,7 @@
       <input type="text" class="form-control" name="servise_id" placeholder="Тип услуги" aria-label="Тип услуги">
       <input type="text" class="form-control" name="equipment_id" placeholder="Оборудование" aria-label="Оборудование">
       <button class="btn btn-outline-secondary" type="submit">Поиск</button>
-      <button class="btn btn-outline-danger" type="button" id="clearButton">Очистить поиск</button>
+      <a class="btn btn-outline-danger" type="button" href="{% url 'users:profile' user.username %}">Очистить поиск</a>
     </div>
   </form>
   <table class="table">
@@ -80,15 +80,6 @@
   </table>
   {% include "includes/paginator.html" %}
 </div>
-<script>
-  document.getElementById('clearButton').addEventListener('click', function() {
-    const form = document.getElementById('searchForm');
-    const inputs = form.querySelectorAll('input[type="text"]');
-    inputs.forEach(input => {
-      input.value = '';
-    });
-  });
-</script>
 {% else %}
   {% include "includes/none_page.html" %}
 {% endif %} 

@@ -17,6 +17,7 @@ from .forms import CustomUserCreationForm
 app_name = "users"
 
 urlpatterns = [
+    path("registration/great_success", views.success_registration, name="great_success"),
     path(
         'registration/',
         CreateView.as_view(

@@ -1,16 +1,27 @@
 {% load static %}
+{% load django_bootstrap5 %}
 
 <div class="col-6 col-md-4 my-1">
     <div class="card">
       <img 
-        class="img-fluid card-img-top" 
-        height="250" width="250"
-        src="{% static equip.img_path %}"
+        class="img-fluid card-img-top profile-img" 
+        style="border-radius:0;display: block;margin-left: auto;margin-right: auto;height:350px;width:350px;border:none;"
+        src="{{ equip.img_path.url }}"
       >
-      <div class="card-body">           
-        <h5 class="card-title">{{ equip.type }} {{ equip.id }}</h5>
-        <div class="card-text truncate-text" id="truncate-text-{{ equip.id }}" data-target="truncate-text-{{ equip.id }}">{{ equip.installed_apps_and_games }}</div>
-        <button class="mt-0 regular-link toggle-button" data-target="truncate-text-{{ equip.id }}">Показать все игры</button>
+      <div class="card-body">      
+        {% if user.is_staff %}
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="equipment">
+            <input type="hidden" name="equipment_id" value="{{ equip.id }}">
+            {% bootstrap_form equip.form %}
+            {% bootstrap_button button_type="submit" content="Сохранить" style="background-color:#527fc1;border-color:#527fc1;" %}
+          </form>
+        {% else %}
+          <h5 class="card-title">{{ equip.type }} {{ equip.id }}</h5>
+          <div class="card-text truncate-text" id="truncate-text-{{ equip.id }}" data-target="truncate-text-{{ equip.id }}">{{ equip.installed_apps_and_games }}</div>
+          <button class="mt-0 regular-link toggle-button" style="border:none;border-radius:5%;background-color:purple;padding:10px; color:white;margin:auto;" data-target="truncate-text-{{ equip.id }}">Показать все игры</button>
+        {% endif %}     
       </div>
     </div>
   </div>

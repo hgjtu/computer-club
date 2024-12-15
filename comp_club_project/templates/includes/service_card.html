@@ -1,15 +1,26 @@
 {% load static %}
+{% load django_bootstrap5 %}
 
 <div class="col-6 col-md-4 my-1">
     <div class="card">
-      <div class="card-body" style="padding:1rem 0.5rem">           
-        <h5 class="card-title">{{ serv.title }} </h5>
-        {% if serv.weekday %}
-          <p>Будний день</p>
+      <div class="card-body" style="padding:1rem 0.5rem">    
+        {% if user.is_staff %}
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="service">
+            <input type="hidden" name="service_id" value="{{ serv.id }}">
+            {% bootstrap_form serv.form %}
+            {% bootstrap_button button_type="submit" content="Сохранить" style="background-color:#527fc1;border-color:#527fc1;" %}
+          </form>
         {% else %}
-          <p>Выходной</p>
+          <h5 class="card-title">{{ serv.title }} </h5>
+          {% if serv.weekday %}
+            <p>Будний день</p>
+          {% else %}
+            <p>Выходной</p>
+          {% endif %}
+          <p class="badge bg-secondary">{{ serv.price }} руб</p>
         {% endif %}
-        <p class="badge bg-secondary">{{ serv.price }} руб</p>
       </div>
     </div>
   </div>
