@@ -21,7 +21,8 @@ class ServicesForm(forms.ModelForm):
 class EquipmentForm(forms.ModelForm):
     class Meta:
         model = Equipment
-        fields = ['img_path', 'type', 'installed_apps_and_games', 'serviceability']
+        fields = ['img_path', 'type',
+                  'installed_apps_and_games', 'serviceability']
         labels = {
             'type': 'Тип оборудования',
             'installed_apps_and_games': 'Установленные игры и приложения',
@@ -29,6 +30,10 @@ class EquipmentForm(forms.ModelForm):
         }
         widgets = {
             'type': forms.TextInput(attrs={'class': 'form-control'}),
-            'installed_apps_and_games': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
-            'serviceability': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'installed_apps_and_games': forms.Textarea(
+                attrs={'class': 'form-control', 'rows': 4}
+                ),
+            'serviceability': forms.CheckboxInput(
+                attrs={'class': 'form-check-input'}
+                ),
         }

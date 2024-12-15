@@ -6,6 +6,33 @@
 
 {% block content %}
   <h3 class="pb-2 mb-0" style="text-align: center;">Услуги</h3>
+  <form method="GET" action="{% url 'serv_equip:serv_equip_main' %}">
+    <div class="row align-items-end g-3">
+      <div class="col-12 col-md-3">
+          <label for="title-input" class="form-label">Название услуги:</label>
+          <input type="text" id="title-input" class="form-control" name="title" placeholder="Введите название услуги" aria-label="Название услуги">
+      </div>
+
+      <div class="col-12 col-md-3">
+          <label for="weekday-select" class="form-label">Будний день:</label>
+          <select id="weekday-select" class="form-control" name="weekday" aria-label="Будний день">
+              <option value="">Не выбрано</option>
+              <option value="yes">Да</option>
+              <option value="no">Нет</option>
+          </select>
+      </div>
+
+      <div class="col-12 col-md-3">
+          <label for="price-input" class="form-label">Цена услуги за час:</label>
+          <input type="text" id="price-input" class="form-control" name="price" placeholder="Введите цену" aria-label="Цена услуги за час">
+      </div>
+
+      <div class="col-12 col-md-3">
+          <button class="btn btn-outline-secondary w-45" type="submit">Поиск</button>
+          <a class="btn btn-outline-danger w-45" href="{% url 'serv_equip:serv_equip_main' %}">Очистить поиск</a>
+      </div>
+    </div>
+  </form>
   <div class="row">
     {% for serv in services %}
       {% include "includes/service_card.html" %}
@@ -13,6 +40,29 @@
   </div>
 
   <h3 class="pb-2 mb-0" style="text-align: center;">Оборудование</h3>
+  <form method="GET" action="{% url 'serv_equip:serv_equip_main' %}">
+    <div class="row align-items-end g-3">
+      <div class="col-12 col-md-3">
+          <label for="type-input" class="form-label">Тип оборудования:</label>
+          <select class="form-control" id="type-input" name="type" aria-label="Тип оборудования">
+            <option value="">Не выбрано</option>
+            <option value="ПК">ПК</option>
+            <option value="Игровая консоль">Игровая консоль</option>
+            <option value="VR-шлем">VR-шлем</option>
+          </select>
+      </div>
+  
+      <div class="col-12 col-md-3">
+          <label for="installed-apps-input" class="form-label">Установленная игра:</label>
+          <input type="text" id="installed-apps-input" class="form-control" name="installed_apps_and_games" placeholder="Игра" aria-label="Игра">
+      </div>
+  
+      <div class="col-12 col-md-3">
+        <button class="btn btn-outline-secondary w-45" type="submit">Поиск</button>
+        <a class="btn btn-outline-danger w-45" href="{% url 'serv_equip:serv_equip_main' %}">Очистить поиск</a>
+      </div>
+  </div>
+  </form>
   <div class="row">
     {% for equip in equipment %}
       {% include "includes/equipment_card.html" %}

@@ -33,19 +33,6 @@
 </div>
 <div class="container mt-4">
   <h2>Ваши сессии</h2>
-  <form method="GET" action="{% url 'users:profile' user.username %}">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" name="session_id" placeholder="Номер сессии" aria-label="Номер сессии">
-      <input type="text" class="form-control" name="start_time_from" placeholder="Время начала от" aria-label="Время начала от">
-      <input type="text" class="form-control" name="start_time_to" placeholder="Время начала до" aria-label="Время начала до">
-      <input type="text" class="form-control" name="end_time_from" placeholder="Окончание от" aria-label="Время окончания от">
-      <input type="text" class="form-control" name="end_time_to" placeholder="Окончание до" aria-label="Время окончания до">
-      <input type="text" class="form-control" name="servise_id" placeholder="Тип услуги" aria-label="Тип услуги">
-      <input type="text" class="form-control" name="equipment_id" placeholder="Оборудование" aria-label="Оборудование">
-      <button class="btn btn-outline-secondary" type="submit">Поиск</button>
-      <a class="btn btn-outline-danger" type="button" href="{% url 'users:profile' user.username %}">Очистить поиск</a>
-    </div>
-  </form>
   <table class="table">
     <thead>
       <tr style="text-align:center;">

@@ -8,12 +8,12 @@
         style="border-radius:0;display: block;margin-left: auto;margin-right: auto;height:350px;width:350px;border:none;"
         src="{{ equip.img_path.url }}"
       >
-      <div class="card-body">      
+      <div class="card-body">   
         {% if user.is_staff %}
+          <p>Порядковый номер оборудования: {{ equip.id }}</p>
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="hidden" name="form_type" value="equipment">
-            <input type="hidden" name="equipment_id" value="{{ equip.id }}">
             {% bootstrap_form equip.form %}
             {% bootstrap_button button_type="submit" content="Сохранить" style="background-color:#527fc1;border-color:#527fc1;" %}
           </form>

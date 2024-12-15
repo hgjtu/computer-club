@@ -33,6 +33,31 @@ def ServicedEquipment(request):
     equipments = Equipment.objects.order_by('id')
     services = Services.objects.order_by('weekday').reverse()
 
+    if request.method == 'GET':
+        title = request.GET.get('title', '')
+        weekday = request.GET.get('weekday', '')
+        price = request.GET.get('price', '')
+        equip_type = request.GET.get('type', '')
+        installed_apps = request.GET.get('installed_apps_and_games', '')
+
+        if title:
+            services = services.filter(title__icontains=title)
+        if weekday:
+            weekday_filter = True if weekday == 'yes' else False
+            services = services.filter(weekday=weekday_filter)
+        if price:
+            try:
+                services = services.filter(price__lte=float(price))
+            except ValueError:
+                pass
+
+        if equip_type:
+            equipments = equipments.filter(type__icontains=equip_type)
+        if installed_apps:
+            equipments = equipments.filter(
+                installed_apps_and_games__icontains=installed_apps
+                )
+
     for equipment in equipments:
         equipment.form = EquipmentForm(instance=equipment)
         equipment.installed_apps_and_games \
