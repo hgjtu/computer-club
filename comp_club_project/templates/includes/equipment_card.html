@@ -17,6 +17,11 @@
             {% bootstrap_form equip.form %}
             {% bootstrap_button button_type="submit" content="Сохранить" style="background-color:#527fc1;border-color:#527fc1;" %}
           </form>
+          <form method="post" action="{% url 'serv_equip:delete_equipment' equip.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="delete_equipment">
+            <button type="submit" style="margin-top: 10px;padding:5px;background-color:#ff4c4c; border-color:#ff4c4c; color: white;border-radius:10px;">Удалить</button>
+          </form>
         {% else %}
           <h5 class="card-title">{{ equip.type }} {{ equip.id }}</h5>
           <div class="card-text truncate-text" id="truncate-text-{{ equip.id }}" data-target="truncate-text-{{ equip.id }}">{{ equip.installed_apps_and_games }}</div>

@@ -1,11 +1,18 @@
 from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Services, Equipment
 from .forms import ServicesForm, EquipmentForm
 import os
 from django.core.files import File
 from django.conf import settings
+
+
+def delete_equipment(request, equip_id):
+    if request.method == 'POST':
+        equipment = get_object_or_404(Equipment, id=equip_id)
+        equipment.delete()
+        return redirect('serv_equip:serv_equip_main')
 
 
 def ServicedEquipment(request):
